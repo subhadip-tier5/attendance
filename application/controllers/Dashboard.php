@@ -36,10 +36,11 @@ class Dashboard extends CI_Controller {
 			$adminsession['adminid'] = $result['id'];
 
 			$this->session->set_userdata($adminsession);
-			header("location:".base_url()."index.php/Admin");
-
-			
-			header("Location:".base_url()."index.php/Admin");
+//			header("location:".base_url()."index.php/Admin");
+//
+//			
+//			header("Location:".base_url()."index.php/Admin");
+                        redirect('admin');
 			
 		}
 		else
@@ -75,7 +76,8 @@ class Dashboard extends CI_Controller {
 
 			//print_r($this->session->userdata('id'));
 			
-			header("location:".base_url()."index.php/Employee");
+//			header("location:".base_url()."index.php/Employee");
+                    redirect('employee');
 		}
 		else
 		{

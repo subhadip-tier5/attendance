@@ -30,15 +30,15 @@
     <![endif]-->
 
     <!-- jQuery -->
-    <script src="<?php echo base_url().'application/views/js/jquery.js'?>"></script>
+    <script src="<?php echo base_url().'/application/views/js/jquery.js'?>"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo base_url().'application/views/js/bootstrap.min.js'?>"></script>
+    <script src="<?php echo base_url().'/application/views/js/bootstrap.min.js'?>"></script>
 
     <!-- Scrolling Nav JavaScript -->
-    <script src="<?php echo base_url().'application/views/js/jquery.easing.min.js'?>"></script>
-    <script src="<?php echo base_url().'application/views/js/scrolling-nav.js'?>"></script>
-    <script src="<?php echo base_url().'application/views/js/showallemployee.js'?>"></script>
+    <script src="<?php echo base_url().'/application/views/js/jquery.easing.min.js'?>"></script>
+    <script src="<?php echo base_url().'/application/views/js/scrolling-nav.js'?>"></script>
+    <script src="<?php echo base_url().'/application/views/js/showallemployee.js'?>"></script>
 
     <script type="text/javascript" src="<?php echo base_url().'application/views/js/addemp.js';?>"></script>
     <script type="text/javascript" src="<?php echo base_url().'application/views/js/buttons.js';?>"></script>
@@ -52,8 +52,6 @@
     <script type="text/javascript" src="<?php echo base_url().'application/views/js/breakbuttons.js';?>"></script>
 
     <script type="text/javascript" src="<?php echo base_url().'application/views/js/admin.js';?>"></script>
-
-    <script type="text/javascript" src="<?php echo base_url().'application/views/js/timerlib.js';?>"></script>
     <script type="text/javascript" src="<?php echo base_url().'application/views/js/jquery.countdown.min.js';?>"></script>
 
 </head>

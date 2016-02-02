@@ -60,27 +60,17 @@
     <div class="row">
         <div class="col-lg-12">
             <h1>test</h1>
-            <script type="text/javascript">
-                var date1 = new Date(2016, 02, 02, 17, 34, 30);
-//                document.write(date1.getTime() + 30);
-//                document.write('<br/>');
-//                var date2 = new Date('2016-02-02 17:34:30');
-//                document.write(date2.getTime() + 100);
-            </script>
-            <div id="test1"></div>
+            <div class="cls-clk">
+                <span id="clk1"></span>
+            </div>
             <div id="test2"></div>
             <script type="text/javascript">
-                $(function(){
-                    $('#test1').countdown({
-                        until: shortly, 
-                        expiryText: '<div class="over">It\'s all over</div>'
-                    }); 
-
-                    var shortly = new Date(2016, 02, 02, 17, 34, 30); 
-                    shortly.setSeconds(shortly.getSeconds() + 1200); 
-                    $('#test1').countdown('option', {until: shortly});
+                $('#clk1').countdown('2016-02-03 01:48:00').on('update.countdown', function(event) {
+                    $(this).html(event.strftime('' + '<span>%M</span> min ' + '<span>%S</span> sec'));
+                }).on('finish.coundown', function(){
+                    alert(1);
+                    $(this).parent().html('<p>You are late</p>');
                 });
-                
             </script>
         </div>
     </div>
