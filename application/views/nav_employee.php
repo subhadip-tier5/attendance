@@ -1,9 +1,19 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
+<!--        <li>
+            <div id="clock" class="dark-clock">
+                <div class="display-clock">
+                    <div class="weekdays"></div>
+                    <div class="ampm"></div>
+                    <div class="alarm"></div>
+                    <div class="digits"></div>
+                </div>
+            </div>
+        </li>-->
         <li class="active">
             <a href="<?php echo base_url('home'); ?>"><i class="fa fa-fw fa-dashboard"></i> Home</a>
         </li>
-<!--        <li>
+<!--       <li>
             <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
         </li>
         <li>

@@ -13,8 +13,7 @@
     <script type="text/javascript">
         var BASE_URL = '<?php echo BASE_URL; ?>';
     </script>
-
-    <link href="<?php echo ASSETS_URI.'css/countdown.css'?>" rel="stylesheet">
+    <link href="<?php echo ASSETS_URI.'css/digital-clock.css';?>" rel="stylesheet">
     <link href="<?php echo ASSETS_URI.'css/bootstrap.min.css';?>" rel="stylesheet">
     <link href="<?php echo ASSETS_URI.'css/sb-admin.css';?>" rel="stylesheet">
     <link href="<?php echo ASSETS_URI.'css/plugins/morris.css'?>" rel="stylesheet">
@@ -32,6 +31,8 @@
     <script src="<?php echo ASSETS_URI.'js/jquery.js'?>"></script>
     <script src="<?php echo ASSETS_URI.'js/bootstrap.min.js'?>"></script>
     <script type="text/javascript" src="<?php echo ASSETS_URI.'js/jquery.countdown.min.js';?>"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+    <script src="<?php echo ASSETS_URI;?>js/digital-clock.js"></script>
     <script src="<?php echo ASSETS_URI;?>js/plugins/morris/raphael.min.js"></script>
     <script src="<?php echo ASSETS_URI;?>js/plugins/morris/morris.min.js"></script>
     <script src="<?php echo ASSETS_URI;?>js/plugins/morris/morris-data.js"></script>
@@ -49,11 +50,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo base_url('home'); ?>"><img src="<?php echo ASSETS_URI; ?>images/logo.png" alt="" title="" class="img-responsive"></a>
-        </div>
+            <a class="navbar-brand logo-fix" href="<?php echo base_url('home'); ?>"><img src="<?php echo ASSETS_URI; ?>images/logo.png" alt="" title="" class="img-responsive"></a>
+        </div>        
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
-            <li class="dropdown">
+<!--            <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                 <ul class="dropdown-menu message-dropdown">
                     <li class="message-preview">
@@ -105,8 +106,8 @@
                         <a href="#">Read All New Messages</a>
                     </li>
                 </ul>
-            </li>
-            <li class="dropdown">
+            </li>-->
+<!--            <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                 <ul class="dropdown-menu alert-dropdown">
                     <li>
@@ -132,7 +133,7 @@
                         <a href="#">View All</a>
                     </li>
                 </ul>
-            </li>
+            </li>-->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $display_name; ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -156,6 +157,7 @@
         <?php if($this->session->userdata('user_type') == 1): ?>
         <?php $this->load->view('nav_admin'); ?>
         <?php endif; ?>
+        
         <?php if($this->session->userdata('user_type') == 2): ?>
         <?php $this->load->view('nav_employee'); ?>
         <?php endif; ?>

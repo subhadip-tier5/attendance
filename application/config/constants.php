@@ -87,5 +87,5 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 define('DATE_DISPLAY_FORMAT',"d/m/Y");
 define('TIME_DISPLAY_FORMAT',"H:i:s");
 
-define('BASE_URL', 'http://localhost/ciprojectlocal/');
+define('BASE_URL', 'http://localhost/php/codeigniter/attendance/');
 define('ASSETS_URI', BASE_URL.'assets/');
