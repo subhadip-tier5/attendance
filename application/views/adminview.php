@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'header.php';?>
+<?php $this->load->view('header');?>
 
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
@@ -57,23 +57,33 @@
     <!-- Intro Section -->
         <button class="btn btn-default page-scroll">Go To Employee Management!</button>
     
-    <div class="row">
-        <div class="col-lg-12">
-            <h1>test</h1>
-            <div class="cls-clk">
-                <span id="clk1"></span>
-            </div>
-            <div id="test2"></div>
-            <script type="text/javascript">
-                $('#clk1').countdown('2016-02-03 01:48:00').on('update.countdown', function(event) {
-                    $(this).html(event.strftime('' + '<span>%M</span> min ' + '<span>%S</span> sec'));
-                }).on('finish.coundown', function(){
-                    alert(1);
-                    $(this).parent().html('<p>You are late</p>');
-                });
-            </script>
-        </div>
+    <div>
+        Limited Time Only!
+        <span id="clock"></span>
     </div>
+
+<!--<div class="example-selector">
+  <select id="time-selector">
+    <option value="5w" selected>5 weeks from now</option>
+    <option value="1.1w">1 week from now (pluralization in action)</option>
+    <option value="5d">5 days from now</option>
+    <option value="1.1d">1 day from now (pluralization in action)</option>
+    <option value="5h">5 hours from now</option>
+    <option value="5s">5 seconds from now (finishin in ...)</option>
+  </select>
+  <small>Change the value on the drop down to see the changes.</small>
+</div>-->
+
+<script type="text/javascript">
+  var $clock = $('#clock').countdown('2016/02/03 13:22:00')
+    .on('update.countdown', function(event) {
+        $(this).html(event.strftime('' + '<span>%M</span> min' + '<span>%S</span> sec'));
+    })
+    .on('finish.countdown', function(event) {
+      $(this).parent().addClass('disabled').html('You are late');
+    });
+
+</script>
     <section id="intro" class="intro-section">
 
         <div class="container-fluid">
