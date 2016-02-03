@@ -39,6 +39,7 @@
 <body>
     <div id="wrapper">
     <!-- Navigation -->
+    <?php if($this->session->has_userdata('is_logged_in')): ?>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -146,7 +147,7 @@
                     </li>
                     <li class="divider"></li>-->
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="<?php echo base_url('home/logout'); ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </li>
                 </ul>
             </li>
@@ -161,3 +162,4 @@
         <!-- /.navbar-collapse -->
         
     </nav>
+    <?php endif; ?>
