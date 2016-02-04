@@ -74,10 +74,10 @@
         <div class="page-header">
             <h1>Pre Lunch Break</h1>
         </div>
-        <div class="row brk_1">
-            <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-3">
                 <a style="text-decoration: none;" href="javascript:void(0);" class="breaks" data-break-type="1" data-break-status="0" data-user-id="<?php echo $this->session->userdata('id_user'); ?>">
-                    <div class="panel panel-green">
+                    <div class="panel panel-green" id="start_break_div_1">
                         <div class="panel-heading">
                             <h3 class="panel-title" id="start_break_1">Take this break</h3>
                         </div>
@@ -85,31 +85,99 @@
                 </a>
             </div>
             <!-- /.col-sm-4 -->
-            <div class="col-sm-6">
-                <div class="panel panel-green">
+            <div class="col-sm-3">
+                <div class="panel panel-green" id="end_break_time_div_1">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Break status</h3>
+                        <h3 class="panel-title" id="end_break_time_1">Break status</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="panel panel-green" id="end_break_div_1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="end_break_1">Break status</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="panel panel-green" id="clock_div_1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="clock_1">Break Status</h3>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row brk_1">
+        <div class="page-header">
+            <h1>Lunch Break</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <a style="text-decoration: none;" href="javascript:void(0);" class="breaks" data-break-type="2" data-break-status="0" data-user-id="<?php echo $this->session->userdata('id_user'); ?>">
+                    <div class="panel panel-green" id="start_break_div_2">
+                        <div class="panel-heading">
+                            <h3 class="panel-title" id="start_break_2">Take this break</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
             <!-- /.col-sm-4 -->
-            <div class="col-sm-6">
-                <div class="panel panel-green">
+            <div class="col-sm-3">
+                <div class="panel panel-green" id="end_break_time_div_2">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Break status</h3>
+                        <h3 class="panel-title" id="end_break_time_2">Break status</h3>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="panel panel-green">
+            <div class="col-sm-3">
+                <div class="panel panel-green" id="end_break_div_2">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Break Status</h3>
+                        <h3 class="panel-title" id="end_break_2">Break status</h3>
                     </div>
                 </div>
             </div>
+            <div class="col-sm-3">
+                <div class="panel panel-green" id="clock_div_2">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="clock_2">Break Status</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-header">
+            <h1>Post Lunch Break</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <a style="text-decoration: none;" href="javascript:void(0);" class="breaks" data-break-type="3" data-break-status="0" data-user-id="<?php echo $this->session->userdata('id_user'); ?>">
+                    <div class="panel panel-green" id="start_break_div_1">
+                        <div class="panel-heading">
+                            <h3 class="panel-title" id="start_break_3">Take this break</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
             <!-- /.col-sm-4 -->
+            <div class="col-sm-3">
+                <div class="panel panel-green" id="end_break_time_div_3">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="end_break_time_3">Break status</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="panel panel-green" id="end_break_div_3">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="end_break_3">Break status</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="panel panel-green" id="clock_div_3">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="clock_3">Break Status</h3>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- /.container-fluid -->

@@ -71,12 +71,15 @@ class Ajax extends CI_Controller {
             'taken_at' => date(DATETIME_DATABASE_FORMAT),
             'status' => $this->input->post('break_status')
         );
-        
+        if($res = $this->site_model->get_row('tbl_break', array('break_type' => $this->input->post('break_type')))){
+            $interval = $res->break_time;
+        }
         if($insert_id = $this->site_model->insert('tbl_emp_break', $data)){
             if($data = $this->site_model->get_row('tbl_emp_break', array('id_emp_break' => $insert_id))){
                 $response = array(
                     'break_start_time' => date(TIME_DISPLAY_FORMAT, strtotime($data->taken_at)),
-                    'break_end_time' => date(DATE_DISPLAY_FORMAT_LONG, strtotime($data->taken_at)),
+                    'break_end_time' => date(TIME_DISPLAY_FORMAT, strtotime(date(DATETIME_DATABASE_FORMAT, strtotime($data->taken_at)).'+20 minutes')),
+                    'countdown_endtime' => date(COUNTDOWN_DATETIME_FORMAT, strtotime(date(DATETIME_DATABASE_FORMAT, strtotime($data->taken_at)).'+'.$interval.' minutes')),
                     'status' => 'success'
                 );
                 echo json_encode($response);

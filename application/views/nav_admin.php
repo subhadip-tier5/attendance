@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
-        <li class="active"><a href="<?php echo base_url('home'); ?>"><i class="fa fa-fw fa-dashboard"></i> Home</a></li>
-        <li><a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a></li>
+        <li <?php echo (get_admin_permalink() && get_admin_permalink() == 'home') ? 'class="active"' : '';?>><a href="<?php echo base_url('home'); ?>"><i class="fa fa-fw fa-dashboard"></i> Home</a></li>
+        <li <?php echo (get_admin_permalink() && get_admin_permalink() == 'manage-employess') ? 'class="active"' : '';?>><a href="<?php echo base_url('manage-employess'); ?>"><i class="fa fa-user"></i> Manage Employees</a></li>
 <!--        <li>
             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
         </li>

@@ -84,3 +84,10 @@ function get_userdata_by_id($user_id, $attribute = FALSE){
         return FALSE;
     }
 }
+
+function get_admin_permalink(){
+    if(get_instance()->uri->segment(1, 0) === FALSE){
+        return FALSE;
+    }
+    return get_instance()->uri->segment(1, 0);
+}
