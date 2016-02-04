@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 03, 2016 at 07:24 PM
+-- Generation Time: Feb 04, 2016 at 08:06 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -157,6 +157,28 @@ CREATE TABLE IF NOT EXISTS `sbreak` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_attendance`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_attendance` (
+  `id_attendance` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `attend_at` datetime NOT NULL,
+  `status` enum('0','1') NOT NULL DEFAULT '0' COMMENT '0->clockin, 1-> clockout',
+  PRIMARY KEY (`id_attendance`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `tbl_attendance`
+--
+
+INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `attend_at`, `status`) VALUES
+(1, 2, '2016-02-04 17:02:24', '0'),
+(2, 2, '2016-02-04 17:02:41', '1');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_break`
 --
 
@@ -185,20 +207,37 @@ INSERT INTO `tbl_break` (`id_break`, `break_name`, `break_type`, `break_time`) V
 
 CREATE TABLE IF NOT EXISTS `tbl_emp_break` (
   `id_emp_break` int(11) NOT NULL AUTO_INCREMENT,
-  `id_emp` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `break_type` int(11) NOT NULL,
   `taken_at` datetime NOT NULL,
   `status` enum('1','0') NOT NULL DEFAULT '0' COMMENT '0-> Take break, 1-> Return from break',
   PRIMARY KEY (`id_emp_break`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `tbl_emp_break`
 --
 
-INSERT INTO `tbl_emp_break` (`id_emp_break`, `id_emp`, `break_type`, `taken_at`, `status`) VALUES
+INSERT INTO `tbl_emp_break` (`id_emp_break`, `id_user`, `break_type`, `taken_at`, `status`) VALUES
 (1, 1101, 1, '2016-02-03 13:36:44', '0'),
-(2, 1117, 1, '2016-02-03 13:32:44', '0');
+(2, 1117, 1, '2016-02-03 13:32:44', '0'),
+(3, 2, 1, '2016-02-04 19:37:33', '0'),
+(4, 2, 1, '2016-02-04 19:39:34', '0'),
+(5, 2, 1, '2016-02-04 19:39:57', '0'),
+(6, 2, 1, '2016-02-04 19:39:58', '0'),
+(7, 2, 1, '2016-02-04 19:39:59', '0'),
+(8, 2, 1, '2016-02-04 19:43:57', '0'),
+(9, 2, 1, '2016-02-04 19:44:35', '0'),
+(10, 2, 1, '2016-02-04 19:45:17', '0'),
+(11, 2, 1, '2016-02-04 19:45:54', '0'),
+(12, 2, 1, '2016-02-04 19:58:26', '0'),
+(13, 2, 1, '2016-02-04 19:58:30', '0'),
+(14, 2, 1, '2016-02-04 19:58:35', '0'),
+(15, 2, 1, '2016-02-04 19:59:06', '0'),
+(16, 2, 1, '2016-02-04 20:00:04', '0'),
+(17, 2, 1, '2016-02-04 20:00:12', '0'),
+(18, 2, 1, '2016-02-04 20:03:40', '0'),
+(19, 2, 1, '2016-02-04 20:03:50', '0');
 
 -- --------------------------------------------------------
 

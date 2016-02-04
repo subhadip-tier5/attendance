@@ -13,10 +13,8 @@
     <script type="text/javascript">
         var BASE_URL = '<?php echo BASE_URL; ?>';
     </script>
-    <link href="<?php echo ASSETS_URI.'css/digital-clock.css';?>" rel="stylesheet">
     <link href="<?php echo ASSETS_URI.'css/bootstrap.min.css';?>" rel="stylesheet">
     <link href="<?php echo ASSETS_URI.'css/sb-admin.css';?>" rel="stylesheet">
-    <link href="<?php echo ASSETS_URI.'css/plugins/morris.css'?>" rel="stylesheet">
     <link href="<?php echo ASSETS_URI;?>font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo ASSETS_URI.'css/style.css'?>" rel="stylesheet">
     
@@ -31,11 +29,7 @@
     <script src="<?php echo ASSETS_URI.'js/jquery.js'?>"></script>
     <script src="<?php echo ASSETS_URI.'js/bootstrap.min.js'?>"></script>
     <script type="text/javascript" src="<?php echo ASSETS_URI.'js/jquery.countdown.min.js';?>"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
-    <script src="<?php echo ASSETS_URI;?>js/digital-clock.js"></script>
-    <script src="<?php echo ASSETS_URI;?>js/plugins/morris/raphael.min.js"></script>
-    <script src="<?php echo ASSETS_URI;?>js/plugins/morris/morris.min.js"></script>
-    <script src="<?php echo ASSETS_URI;?>js/plugins/morris/morris-data.js"></script>
+    <script src="<?php echo ASSETS_URI;?>js/attendance.js"></script>
 </head>
 <body>
     <div id="wrapper">
