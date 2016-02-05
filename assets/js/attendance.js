@@ -1,5 +1,24 @@
 (function($){
+    
+    var break_status_for_employees = function(break_type, selector){
+        $.ajax({
+            url: 'ajax/break_status_for_employees',
+            type:'POST',
+            data: {break_type: break_type},
+            success: function(response){
+                $(selector).html(response);
+            }
+        });
+    };
+    
     $(function(){
+        
+        break_status_for_employees('1', '#response_for_break_1');
+        
+        setInterval(function(){
+            break_status_for_employees('1', '#response_for_break_1');
+        }, 1000);
+        
         $('#clockin').click(function(){
             var user_id = $(this).data('id-user');
             $.ajax({
@@ -70,13 +89,14 @@
                         .on('update.countdown', function(event) {
                             if(event.elapsed) {
                                 $('#clock_div_' + break_type).removeClass('panel-yellow').addClass('panel-red');
-                                $(this).html(event.strftime('%M:%S late'));
+                                $(this).html(event.strftime('%H:%M:%S late'));
                             }else{
-                                $(this).html(event.strftime('%M:%S left'));
+                                $(this).html(event.strftime('%H:%M:%S left'));
                             }
                         });
                     }else if(result.status == 'error'){
-
+                        alert(result.message);
+                        return false;
                     }
                 }
             });
@@ -99,11 +119,13 @@
                         $('#end_break_' + break_type).html('Break time ended at: <strong>' + result.break_start_time + ' HRS</strong>');
                         $('#clock_' + break_type).countdown('stop');
                     }else if(result.status == 'error'){
-
+                        
                     }
                 }
             });
         });
+        
+        
     });
 })(jQuery);
 

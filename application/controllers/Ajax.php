@@ -74,6 +74,17 @@ class Ajax extends CI_Controller {
         if($res = $this->site_model->get_row('tbl_break', array('break_type' => $this->input->post('break_type')))){
             $interval = $res->break_time;
         }
+        if($this->input->post('break_status') == 0){
+            if(!$this->attendance_model->check_break_status($this->input->post('user_id'))){
+                $response = array(
+                   'status' => 'error',
+                   'message' => 'You are already into a break. You can not take a break within an another break!!'
+               );
+               echo json_encode($response);
+               die();
+           }
+        }
+        
         if($insert_id = $this->site_model->insert('tbl_emp_break', $data)){
             if($data = $this->site_model->get_row('tbl_emp_break', array('id_emp_break' => $insert_id))){
                 $response = array(
@@ -84,6 +95,61 @@ class Ajax extends CI_Controller {
                 );
                 echo json_encode($response);
             }
+        }
+    }
+    
+    public function break_status_for_employees(){
+        $table = '';
+        if($results = $this->attendance_model->break_status_for_employees($this->input->post('break_type'))){
+            foreach ($results as $result) {
+                if($res = $this->site_model->get_row('tbl_break', array('break_type' => $this->input->post('break_type')))){
+                    $interval = $res->break_time;
+                }
+                $table_insert = '';
+                $start_break = $result->taken_at; // break taken by employee    
+                if($br_stat = $this->attendance_model->break_end_status_for_employee($this->input->post('break_type'), $result->id_user)){
+                    $end_time = $br_stat->taken_at; // break ended by employee
+                    $actual_break_end_time = date(DATETIME_DATABASE_FORMAT, strtotime(date(DATETIME_DATABASE_FORMAT, strtotime($start_break)).'+'.$interval.' minutes')); // actual end break time
+                    $date_start = new DateTime($actual_break_end_time);
+                    $date_end = new DateTime($end_time);
+                    $interval = date_diff($date_start,$date_end);
+                    
+                    $break_status_emp = (strtotime($end_time) > strtotime($actual_break_end_time)) ? 'Late' : 'Left';
+                    $tr_class = (strtotime($end_time) > strtotime($actual_break_end_time)) ? 'danger' : 'success';
+                    $table_insert .= '<td>'.date(TIME_DISPLAY_FORMAT, strtotime($end_time)).'</td>';
+                    $table_insert .= '<td>'.$interval->format('%h:%i:%s').' '.$break_status_emp.'</td>';
+                    $table_insert_sript = '';
+                }else{
+                    $tr_class = 'warning';
+                    $table_insert .= '<td>On break</td>';
+                    $countdown_date = date(COUNTDOWN_DATETIME_FORMAT, strtotime(date(DATETIME_DATABASE_FORMAT, strtotime($result->taken_at)).'+'.$interval.' minutes'));
+                    $table_insert .= '<td id="clock_'.$result->id_emp_break.'">no</td>';
+                    $table_insert_sript = "<script type='text/javascript'>"
+                        . "$(document).ready(function(){"
+                        . "$('#clock_".$result->id_emp_break."').countdown('".$countdown_date."', {elapse: true})
+                        .on('update.countdown', function(event) {
+                            if(event.elapsed) {
+                                $(this).parent().removeClass().addClass('danger');
+                                $(this).html(event.strftime('%H:%M:%S late'));
+                            }else{
+                                $(this).parent().removeClass().addClass('warning');
+                                $(this).html(event.strftime('%H:%M:%S left'));
+                            }
+                        });
+                        });
+                        </script>";
+                }
+                $table .= '<tr class="warning">';
+                $table .= '<td>'.$result->user_name.'</td>';
+                $table .= '<td style="width: 25% !important;">'.date(TIME_DISPLAY_FORMAT, strtotime($start_break)).'</td>';
+                $table .= $table_insert;
+                $table .= '</tr>';
+                $table .= $table_insert_sript;
+                
+            }
+            echo $table;
+        }else{
+            echo $table .= '<tr class="active"><td colspan="4">Currently none has taken this break</td></tr>';
         }
     }
 }
